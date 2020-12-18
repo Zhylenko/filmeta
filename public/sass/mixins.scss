@@ -1,0 +1,16 @@
+@mixin inputNM($color){
+	box-shadow: 5px 5px 10px darken($color, 15%),
+			-5px -5px 10px lighten($color, 10%),
+			inset 5px 5px 10px darken($color, 15%),
+			inset -5px -5px 10px lighten($color, 10%);
+}
+
+@mixin blockNM($color){
+	box-shadow: 5px 5px 10px darken($color, 15%),
+			-5px -5px 10px lighten($color, 10%);
+}
+
+@mixin textNM($color){
+	box-shadow: inset 5px 5px 10px darken($color, 15%),
+			inset -5px -5px 10px lighten($color, 10%);
+}

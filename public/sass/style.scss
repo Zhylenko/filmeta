@@ -1,0 +1,279 @@
+@charset "UTF-8";
+/*
+© Copyright 2020 by Vladislav Zhylenko
+** - Default CSS
+** - Header Area
+** - Search Area
+** - Film Area
+** - Scrollbar
+** - Responsive
+*/
+@import "mixins.scss";
+@import "values.scss";
+
+/*================================================
+Default CSS
+=================================================*/
+* {
+  	margin: 0;
+  	padding: 0;
+  	background-color: $color1;
+}
+
+*::selection {
+  background: $color3;
+  color: white;
+}
+
+img {
+ 	max-width: 100%;
+  	height: auto;
+}
+
+a {
+  	text-decoration: none;
+  	outline: 0 !important;
+  	color: black;
+}
+
+p{
+	margin: 0;
+}
+
+button {
+  	outline: 0 !important;
+}
+
+input{
+	outline: none;
+}
+
+#detach-button-host{
+	background: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap'); //$family1
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap'); //$family2
+
+/*================================================
+Header Area
+=================================================*/
+
+.header-area{
+	position: relative;
+	width: 100%;
+	display: flex;
+	top: 0;
+
+	.logo-block{
+		font-family: $family1;
+		color: $color3;
+		font-size: 34px;
+		margin: 0 auto;
+	}
+}
+
+/*================================================
+Search Area
+=================================================*/
+
+.search-area{
+	position: relative;
+	width: 100%;
+	display: flex;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 200px;
+
+	.search-block{
+		position: relative;
+		width: 30%;
+		max-width: 400px;
+		min-width: 320px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: $family2;
+
+		.search-form{
+			width: 100%;
+
+			input{
+				font-size: 22px;
+				color: $color2;
+				padding: 15px;
+				width: calc(100% - 30px);
+				border: none;
+				border-radius: 30px;
+				@include inputNM($color1);
+			}
+		}
+
+		.result-area{
+			position: relative;
+			width: calc(100% - 30px);
+			max-height: 400px;
+			margin-top: 20px;
+			padding: 15px;
+			border-radius: 30px;
+			@include textNM($color1);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.result-block{
+				overflow: auto;
+				position: relative;
+				width: 100%;
+
+				.result{
+					position: relative;
+					width: 100%;
+					min-height: 60px;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+
+					.title{
+						font-size: 20px;
+						font-weight: bold;
+						color: $color2;
+					}
+					.more{
+						font-size: 20px;
+						color: $color3;
+					}
+
+					&:after{
+						content: '';
+						background: $color3;
+						position: absolute;
+						width: 80%;
+						height: 1px;
+						top: 0;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*================================================
+Film Area
+=================================================*/
+
+.film-area{
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 40px 0;
+
+	.film-block{
+		position: relative;
+		min-width: 320px;
+		max-width: 750px;
+		width: calc(100% - 50px);
+		padding: 15px;
+		@include blockNM($color1);
+		border-radius: 15px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		font-family: $family3;
+
+		.film-title{
+			width: 100%;
+			color: $color2;
+			font-size: 14px;
+			padding: 10px 0;
+		}
+
+		.film-image{
+			flex: 1;
+			position: relative;
+			display: flex;
+			align-items: center;
+			width: 200px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 3);
+			margin: 10px;
+		}
+
+		.film-data{
+			flex: 3;
+			position: relative;
+			padding: 10px;
+			color: $color2;
+			font-size: 14px;
+			display: flex;
+			justify-content: center;
+
+			table{
+				border-spacing: 15px 10px;
+				tr{
+					td{
+						&:nth-child(1){
+							font-weight: bold;
+							display: block;
+						}
+					}
+				}
+			}
+		}
+
+		.film-text{
+			position: relative;
+			width: calc(100% - 20px);
+			padding: 10px;
+			margin: 20px 0;
+			color: $color3;
+			font-size: 16px;
+		}
+
+		.film-video{
+			position: relative;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		a{
+			color: $color4;
+			text-decoration: underline;
+
+			&:visited{
+				color: darken($color4, 20%);
+			}
+		}
+	}
+}
+
+/*================================================
+Scrollbar
+=================================================*/
+
+::-webkit-scrollbar{
+	width: 5px;
+}
+
+::-webkit-scrollbar-track{
+	background: none;
+}
+
+::-webkit-scrollbar-thumb{
+	background: $color3;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background: $color2;
+}
